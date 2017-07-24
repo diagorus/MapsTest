@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.fuh.mapstest"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //kotlin stdlib
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    //android support
+    compile "com.android.support:appcompat-v7:$support_version"
+    compile "com.android.support:support-v4:$support_version"
+    compile "com.android.support:design:$support_version"
+    compile "com.android.support:recyclerview-v7:$support_version"
+
+    //rxjava2
+    compile "io.reactivex.rxjava2:rxjava:$rxjava2_version"
+    //rxandroid
+    compile "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
+    //timber
+    compile "com.jakewharton.timber:timber:$timber_version"
+
+    //play services
+    compile "com.google.android.gms:play-services-maps:$play_services_version"
+    compile "com.google.android.gms:play-services-location:$play_services_version"
+
+    //stetho
+    debugCompile "com.facebook.stetho:stetho:$stetho_version"
+    debugCompile "com.uphyca:stetho_realm:$stethoRealm_version"
+}
+
+buildscript {
+    ext {
+        support_version = '25.4.0'
+        timber_version = '4.5.1'
+        play_services_version = '11.0.2'
+        rxjava2_version = '2.1.0'
+        rxandroid_version = '2.0.1'
+        permissions_dispatcher_version = '2.4.0'
+        tedpermission_version = '1.0.3'
+        stetho_version = '1.5.0'
+        stethoRealm_version = '2.1.0'
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://jitpack.io" }
+    }
+}

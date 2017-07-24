@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/ibMainTrack"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ripple_button"
+        android:src="@drawable/ic_location_on_white_100dp" />
+
+    <Button
+        android:id="@+id/btnMainHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingStart="56dp"
+        android:paddingEnd="56dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:layout_below="@id/ibMainTrack"
+        android:layout_centerHorizontal="true"
+        android:text="History" />
+
+</RelativeLayout>
